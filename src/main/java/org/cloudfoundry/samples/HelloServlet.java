@@ -27,7 +27,8 @@ public class HelloServlet extends HttpServlet {
 			ip_addr = ssh_client_info.substring(portEnd + 1, dockerIPAddressEnd);
 		}
 
-		writer.println("Hello from me personally");
+		InetAddress IP=InetAddress.getLocalHost();
+		writer.println("Hello from "+IP.getHostAddress()":" + System.getenv("VCAP_APP_PORT"));
 		writer.close();
 	}
 }
